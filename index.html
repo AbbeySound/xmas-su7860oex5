@@ -37,7 +37,7 @@ li{border-top:1px solid var(--line);padding:8px 0}
 .js-off .date{display:block}
 </style></head><body><main>
 <h1>クリスマスマーケット2026 曲目と譜面</h1>
-<p class="upd">11/23 09:27 時点の内容</p>
+<p class="upd">11/23 20:16 時点の内容</p>
 <p class="hint">※曲の並びは演奏する順番ではありません</p>
 <p class="lbl">出演日を選んでください</p>
 <nav class="pick"><a class="day" href="#d1207" data-k="d1207">12/7(月)</a><a class="day" href="#d1208" data-k="d1208">12/8(火)</a><a class="day" href="#d1219" data-k="d1219">12/19(土)</a><a class="day" href="#d1225" data-k="d1225">12/25(金)</a></nav>
@@ -48,8 +48,8 @@ li{border-top:1px solid var(--line);padding:8px 0}
 function show(k){var any=false;
 document.querySelectorAll('.date').forEach(function(e){var on=e.id===k;e.classList.toggle('on',on);if(on)any=true});
 document.querySelectorAll('.day').forEach(function(e){e.classList.toggle('on',e.dataset.k===k)});
-document.getElementById('empty').style.display=any?'none':'block';}
+var em=document.getElementById('empty');if(em)em.style.display=any?'none':'block';}
 document.querySelectorAll('.day').forEach(function(a){a.addEventListener('click',function(ev){ev.preventDefault();var k=a.dataset.k;show(k);try{history.replaceState(null,'','#'+k)}catch(e){}})});
 window.addEventListener('hashchange',function(){show(location.hash.slice(1))});
-show(location.hash.slice(1));
+show(location.hash.slice(1)||'');
 </script></body></html>
